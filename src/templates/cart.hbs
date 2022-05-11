@@ -1,0 +1,116 @@
+<div class="cart-container container">
+  <div class="cart">
+    <div class="cart-header">
+      <div class="cart-title">
+        <span class="cart-title--name">My Cart</span>
+        <span class="cart-title--count" {{cartEmpty}}>({{itemCount}}
+          item)</span>
+      </div>
+      <button
+        id="cartClose"
+        type="button"
+        class="cart-close"
+        aria-label="Close cart popup"
+      >
+        <span class="cart-close--icon">&times;</span>
+      </button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-empty" {{cartNotEmpty}}>
+        <div class="cart-empty-info">
+          <div class="cart-empty--text1">No items in your cart</div>
+          <div class="cart-empty--text2">Your favourite items are just a click
+          </div>
+          away</div>
+      </div>
+      <div class="cart-filled" {{cartEmpty}}>
+        {{#each cartItems}}
+          <div class="cart-item">
+            <div class="cart-item-img">
+              <img
+                class="img-responsive"
+                src="{{this.imageURL}}"
+                alt="Product image of {{this.name}}"
+              />
+            </div>
+            <div class="cart-item-details">
+              <div class="cart-item-name">{{this.name}}</div>
+              <div class="cart-item-pricing">
+                <div class="quantity-price">
+                  <button
+                    type="button"
+                    class="btn btn-quantity"
+                    data-action="plus"
+                    data-id="{{this.id}}"
+                    aria-label="Decrement item quantity of {{this.name}}"
+                  >
+                    <span
+                      class="icon"
+                      data-action="minus"
+                      data-id="{{this.id}}"
+                    >-</span>
+                  </button>
+                  <div class="quantity-nos">
+                    {{this.quantity}}
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-quantity"
+                    data-action="plus"
+                    data-id="{{this.id}}"
+                    aria-label="Increment item quantity of {{this.name}}"
+                  >
+                    <span
+                      class="icon"
+                      data-action="plus"
+                      data-id="{{this.id}}"
+                    >+</span>
+                  </button>
+                  <div class="price-nos">
+                    <span class="icon">X</span>
+                    Rs.{{this.price}}
+                  </div>
+                </div>
+                <div class="total-item-price">Rs.{{this.totalPrice}}</div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+        <div class="cart-ad">
+          <div class="ad-content">
+            <div class="ad-img">
+              <img
+                class="img-responsive"
+                src="/static/images/lowest-price.png"
+                alt="Lowest price guaranteed image"
+              />
+            </div>
+            <div class="ad-info">You won't find it cheaper anywhere</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-footer-empty" {{cartNotEmpty}}>
+        <button
+          type="button"
+          class="btn btn-footer-empty"
+          aria-label="Start Shopping"
+        >
+          <a href="/products.html">Start Shopping</a>
+        </button>
+      </div>
+      <div class="cart-footer-item" {{cartEmpty}}>
+        <p class="promo-info">Promo code can be applied on payment page</p>
+        <button
+          type="button"
+          class="btn btn-footer-item"
+          aria-label="Proceed to Checkout"
+        >
+          <span>Proceed to Checkout</span>
+          <span>Rs.{{totalItemsCost}} ></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

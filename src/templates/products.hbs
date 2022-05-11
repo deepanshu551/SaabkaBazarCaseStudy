@@ -1,0 +1,31 @@
+<section class="container products-container">
+  <div class="row">
+    <div class="category-container">
+      <div class="category-list">
+        {{#each categories}}
+          <button
+            class="category-list-btn"
+            data-id="{{this.id}}"
+          >{{this.name}}</button>
+        {{/each}}
+      </div>
+      <div class="category-dropdown">
+        <button class="category-dropdown-btn">
+          {{this.selectedCategoryName}}
+        </button>
+        <div class="category-dropdown-list">
+          {{#each categories}}
+            <button
+              class="category-dropdown-list-btn"
+              data-id="{{this.id}}"
+            >{{this.name}}</button>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <div class="product-list-container">
+      {{> productList}}
+    </div>
+  </div>
+</section>

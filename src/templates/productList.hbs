@@ -1,0 +1,28 @@
+{{#each products}}
+  <div class="product" data-id= {{this.id}}>
+    <div class="product-title">{{this.name}}</div>
+    <div class="product-image">
+      <img
+        class="img-responsive"
+        src="{{this.imageURL}}"
+        alt="Image of {{this.name}}"
+      />
+    </div>
+    <div class="product-description">
+      {{this.description}}
+    </div>
+    <div class="product-cart">
+      <div class="price">MRP Rs.{{this.price}}</div>
+      <button
+        class="btn buy-btn"
+        type="button"
+        data-id="{{this.id}}"
+        aria-label="Click the Buy Now button to buy product"
+      >
+        Buy Now
+        <span class="buy-btn-price">@ Rs.{{this.price}}</span>
+      </button>
+    </div>
+    <div class="separator"></div>
+  </div>
+{{/each}}

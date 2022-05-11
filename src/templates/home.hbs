@@ -1,0 +1,40 @@
+<section class="home-container container">
+  <div class="slideshow-container">
+    {{#each banners}}
+      <div class="banner-slides fade">
+        <img src="{{this.bannerImageUrl}}" alt="{{this.bannerImageAlt}}" />
+      </div>
+    {{/each}}
+    <a class="prev">PREV</a>
+    <a class="next">NEXT</a>
+
+    <div class="slide-dots">
+      {{#each banners}}
+        <span class="dot"></span>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="category-container">
+    {{#each categories}}
+      <div id="{{this.key}}" class="row category {{this.reverse}}">
+        <div class="col-30 category-img">
+          <img
+            class="img-responsive"
+            src="{{this.imageUrl}}" alt="{{this.name}}"
+          />
+        </div>
+        <div class="col-70 category-details">
+          <h2>{{this.name}}</h2>
+          <p>{{this.description}}</p>
+          <button
+            data-id="{{this.id}}"
+            class="btn category-btn"
+            type="button"
+            aria-label="Click here to explore {{this.key}}"
+          >Explore {{this.key}}</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>

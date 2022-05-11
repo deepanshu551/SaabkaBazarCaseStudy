@@ -1,0 +1,67 @@
+<section class="header-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-25 app-logo">
+        <a
+          href="/"
+          aria-label="Click logo to navigate to Home screen"
+          title="Home"
+        >
+          <img
+            alt="Sabka Bazaar brand logo - Click to navigate to home page"
+            src="/static/images/logo.png"
+          />
+        </a>
+      </div>
+      <div class="col-75">
+        <div class="row">
+          <nav class="col-100 nav-bar auth-menu start-rt">
+            <ul class="nav">
+              {{#each navAuth}}
+                <li class="nav-item">
+                  <a
+                    class="nav-link {{this.status}}"
+                    href="{{this.link}}"
+                    aria-label="Click to {{this.name}}"
+                    title="{{this.name}}"
+                  >{{this.name}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          </nav>
+        </div>
+        <div class="row">
+          <nav class="col-75 nav-bar main-menu">
+            <ul class="nav">
+              {{#each navList}}
+                <li class="nav-item">
+                  <a
+                    class="nav-link {{this.status}}"
+                    href="{{this.link}}"
+                    aria-label="Navigate to {{this.name}} screen"
+                    title="{{this.name}}"
+                  >{{this.name}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          </nav>
+          <div class="col-25 cart-btn start-rt">
+            <button
+              type="button"
+              class="btn"
+              aria-label="Click to view items in the cart"
+              title="View Cart"
+            >
+              <img alt="Cart Icon" src="/static/images/cart.svg" />
+              <div><span id="cartItemsLength">0</span> items</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cart-overlay">
+ {{> cart}}
+</section>
